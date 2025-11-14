@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import connectDB from "./db/connect";
 import otpRouter from "./routes/otpRouter";
 import userRouter from "./routes/userRouter";
+import productsRouter from "./routes/productRoute";
 
 dotenv.config();
 
@@ -16,6 +17,8 @@ connectDB();
 
 app.use("/otp", otpRouter);
 app.use("/user", userRouter);
+app.use("/product", productsRouter);
+app.use("/customer", productsRouter);
 
 app.get("/", (req: Request, res: Response) => {
   res.send("Server is running 🚀");
