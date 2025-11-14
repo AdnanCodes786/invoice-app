@@ -36,9 +36,7 @@ export async function createCustomer(req: Request, res: Response) {
       businessName,
     } = req.body;
 
-    // -----------------------------------
-    // 4. Validate required fields
-    // -----------------------------------
+    
     if (!name) {
       return res.status(400).json({
         success: false,
@@ -46,9 +44,6 @@ export async function createCustomer(req: Request, res: Response) {
       });
     }
 
-    // -----------------------------------
-    // 5. Create the customer
-    // -----------------------------------
     const customer = await CustomerModel.create({
       userId: user._id,
       name,
